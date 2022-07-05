@@ -2,7 +2,7 @@ package payload
 
 import (
 	"github.com/fxamacker/cbor/v2"
-	"github.com/paulwizviz/mqtt-mock/internal/misc"
+	"github.com/paulwizviz/learn-mqtt/internal/misc"
 )
 
 type Data struct {
@@ -46,7 +46,7 @@ func MustSerialize(item *Data) []byte {
 	return strm
 }
 
-func MistDeserialize(data []byte) *Data {
+func MustDeserialize(data []byte) *Data {
 	var i Data
 	cbor.Unmarshal(data, &i)
 	return &i
