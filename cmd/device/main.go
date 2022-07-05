@@ -5,8 +5,8 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/paulwizviz/mqtt-mock/internal/agent"
-	"github.com/paulwizviz/mqtt-mock/internal/payload"
+	"github.com/paulwizviz/learn-mqtt/internal/agent"
+	"github.com/paulwizviz/learn-mqtt/internal/payload"
 )
 
 func main() {

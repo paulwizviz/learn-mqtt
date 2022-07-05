@@ -2,7 +2,7 @@ package payload
 
 import (
 	"github.com/fxamacker/cbor/v2"
-	"github.com/paulwizviz/mqtt-mock/internal/misc"
+	"github.com/paulwizviz/learn-mqtt/internal/misc"
 )
 
 type Data struct {

@@ -3,7 +3,7 @@ package payload_test
 import (
 	"fmt"
 
-	"github.com/paulwizviz/mqtt-mock/internal/payload"
+	"github.com/paulwizviz/learn-mqtt/internal/payload"
 )
 
 func Example_serializeCBOR() {

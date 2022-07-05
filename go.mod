@@ -1,4 +1,4 @@
-module github.com/paulwizviz/mqtt-mock
+module github.com/paulwizviz/learn-mqtt
 
 go 1.18
 

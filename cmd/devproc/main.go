@@ -6,8 +6,8 @@ import (
 	"net/url"
 
 	mqtt "github.com/eclipse/paho.mqtt.golang"
-	"github.com/paulwizviz/mqtt-mock/internal/agent"
-	"github.com/paulwizviz/mqtt-mock/internal/payload"
+	"github.com/paulwizviz/learn-mqtt/internal/agent"
+	"github.com/paulwizviz/learn-mqtt/internal/payload"
 )
 
 func listen(uri *url.URL, topic string, c chan string) {
