@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package pmodel;
+
+option go_package = "github.com/paulwizviz/learn-mqtt/internal/pmodel";
+
+import "google/protobuf/timestamp.proto";
+
+message Data {
+    string ID = 1;
+    string name = 2;
+    google.protobuf.Timestamp last_updated = 3;
+}

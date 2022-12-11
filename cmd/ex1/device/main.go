@@ -2,11 +2,13 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"net/url"
 	"time"
 
+	"github.com/fxamacker/cbor/v2"
 	"github.com/paulwizviz/learn-mqtt/internal/agent"
-	"github.com/paulwizviz/learn-mqtt/internal/payload"
+	"github.com/paulwizviz/learn-mqtt/internal/nmodel"
 )
 
 func main() {
@@ -20,11 +22,18 @@ func main() {
 
 	uri, _ := url.Parse(s)
 
+	// Get a publishing client
 	client := agent.Connect("pub", uri)
+	// Create a timer that ticks every second
 	timer := time.NewTicker(1 * time.Second)
 	for t := range timer.C {
-		item := payload.NewData([]byte(t.String()))
-		p := payload.MustSerialize(item)
-		client.Publish(topic, 0, false, p)
+		d := nmodel.Data{
+			ID:      nmodel.CreateID(),
+			Content: []byte(fmt.Sprintf("Time: %v", t)),
+		}
+		// Serialize model
+		cborD, _ := cbor.Marshal(d)
+		// Publish
+		client.Publish(topic, 0, false, cborD)
 	}
 }

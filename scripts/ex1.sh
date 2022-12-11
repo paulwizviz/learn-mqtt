@@ -30,9 +30,9 @@ export CLIENT_APP_NAME="mqttclient"
 export NETWORK_NAME="mqtt-mock-network"
 
 function build(){
-    docker-compose -f ./build/builder.yaml build device
-    docker-compose -f ./build/builder.yaml build devproc
-    docker-compose -f ./build/builder.yaml build devop
+    docker-compose -f ./build/ex1/builder.yaml build device
+    docker-compose -f ./build/ex1/builder.yaml build devproc
+    docker-compose -f ./build/ex1/builder.yaml build devop
 }
 
 function clean(){
@@ -43,15 +43,15 @@ function clean(){
 }
 
 function run(){
-    docker-compose -f ./deployment/docker-compose.yml up
+    docker-compose -f ./deployment/ex1/docker-compose.yml up
 }
 
 function devop(){
-    docker-compose -f ./deployment/devop.yml up passwd
+    docker-compose -f ./deployment/ex1/devop.yml up passwd
 }
 
 function stop(){
-    docker-compose -f ./deployment/docker-compose.yml down
+    docker-compose -f ./deployment/ex1/docker-compose.yml down
 }
 
 message="$0 build | clean | devop | run  | stop"

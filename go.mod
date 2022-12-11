@@ -5,6 +5,8 @@ go 1.18
 require (
 	github.com/eclipse/paho.mqtt.golang v1.3.5
 	github.com/fxamacker/cbor/v2 v2.4.0
+	github.com/golang/protobuf v1.5.0
+	google.golang.org/protobuf v1.28.1
 )
 
 require (

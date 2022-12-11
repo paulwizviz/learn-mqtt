@@ -16,7 +16,7 @@ ARG UBUNTU_VER
 
 FROM ubuntu:${UBUNTU_VER}
 
-COPY ./build/passgen.sh /opt/passgen.sh
+COPY ./build/ex1/passgen.sh /opt/passgen.sh
 
 RUN apt-get update && \
     apt-get install -y \

@@ -16,31 +16,12 @@ version: '3.4'
 
 services:
 
-  mosquitto-server:
-    image: eclipse-mosquitto:2.0.14
-    container_name: ${MOSQUITTO_CONTAINER}
-    ports:
-      - 1883:1883
-      - 9001:9001
-    volumes:
-      - ./mosquitto.conf:/mosquitto/config/mosquitto.conf
-    networks:
-      - local
+  grpc:
+    build:
+      context: ../../
+      dockerfile: ./build/grpc/grpc.dockerfile
+      args:
+        GO_VERSION: 1.18.8
+        UBUNTU_VER: 20.04
+    image: ${GRPC_IMAGE:-lean-mqtt/grpc}
 
-  mock-device:
-    image: ${DEVICE_IMAGE_NAME}
-    container_name: ${MOCK_DEVICE_CONTAINER}
-    command: /${CLIENT_APP_NAME}
-    networks:
-      - local
-
-  mock-devproc:
-    image: ${DEVPROC_IMAGE_NAME}
-    container_name: ${MOCK_DEVPROC_CONTAINER}
-    command: /${CLIENT_APP_NAME}
-    networks:
-      - local
-
-networks:
-  local:
-    name: ${NETWORK_NAME}

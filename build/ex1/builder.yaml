@@ -18,8 +18,8 @@ services:
 
   device:
     build:
-      context: ../
-      dockerfile: ./build/device.dockerfile
+      context: ../../
+      dockerfile: ./build/ex1/device.dockerfile
       args:
         GO_VER: 1.18.1-buster
         APP_NAME: ${CLIENT_APP_NAME}
@@ -27,8 +27,8 @@ services:
 
   devproc:
     build:
-      context: ../
-      dockerfile: ./build/devproc.dockerfile
+      context: ../../
+      dockerfile: ./build/ex1/devproc.dockerfile
       args:
         GO_VER: 1.18.1-buster
         APP_NAME: ${CLIENT_APP_NAME}
@@ -36,9 +36,10 @@ services:
 
   devop:
     build:
-      context: ../
-      dockerfile: ./build/devop.dockerfile
+      context: ../../
+      dockerfile: ./build/ex1/devop.dockerfile
       args:
         UBUNTU_VER: 18.04
     image: ${DEVOP_IMAGE_NAME:-smqttshell:current}
+
 

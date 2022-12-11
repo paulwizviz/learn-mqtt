@@ -6,16 +6,19 @@ import (
 	"net/url"
 
 	mqtt "github.com/eclipse/paho.mqtt.golang"
+	"github.com/fxamacker/cbor/v2"
 	"github.com/paulwizviz/learn-mqtt/internal/agent"
-	"github.com/paulwizviz/learn-mqtt/internal/payload"
+	"github.com/paulwizviz/learn-mqtt/internal/nmodel"
 )
 
 func listen(uri *url.URL, topic string, c chan string) {
 	client := agent.Connect("sub", uri)
 	client.Subscribe(topic, 0, func(_ mqtt.Client, msg mqtt.Message) {
 		p := msg.Payload()
-		i := payload.MustDeserialize(p)
-		c <- fmt.Sprintf("* [%s] +----+ %v\n", msg.Topic(), i)
+		// Unmarshal payload
+		var d nmodel.Data
+		cbor.Unmarshal(p, &d)
+		c <- fmt.Sprintf("* [%s] +----+ %v\n", msg.Topic(), string(d.Content))
 	})
 }
 
@@ -30,6 +33,7 @@ func main() {
 
 	uri, _ := url.Parse(s)
 
+	// Listen to a topic
 	c := make(chan string)
 	go listen(uri, topic, c)
 
