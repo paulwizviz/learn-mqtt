@@ -1,6 +1,6 @@
 # Overview
 
-This project demonstrating the use of MQTT protocol.
+This project demonstrates the use of MQTT protocol through a series of working examples, Go programming and provisioning.
 
 ## Topics
 
