@@ -1,6 +1,6 @@
 module github.com/paulwizviz/learn-mqtt
 
-go 1.18
+go 1.23
 
 require (
 	github.com/eclipse/paho.mqtt.golang v1.3.5

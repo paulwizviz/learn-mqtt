@@ -1,20 +1,35 @@
 # Eclipse Mosquitto
 
-Eclipse Mosquitto is an open source (EPL/EDL licensed) message broker that implements the MQTT protocol versions 5.0, 3.1.1 and 3.1. Mosquitto is lightweight and is suitable for use on all devices from low power single board computers to full servers (see [offical Ddcs](https://mosquitto.org/).
+This section discusses techniques to provision and developing applications against Mosquito.  
 
-## Mosquitto client
 
 * [Go module](https://github.com/eclipse/paho.mqtt.golang.git)
-
-## Mosquitto broker
-
 * [mosquitto.conf](https://mosquitto.org/man/mosquitto-conf-5.html)
 
-## Working examples
 
-<u>Example 1</u>
+## Provision Examples
 
-This example demonstrates an IoT device sending data payload to a backend service via Mosquitto (MQTT broker). The demonstrator is simulated using docker compose. The data payload is serialized using CBOR. The working example set up is here:
+The following include examples of mosquito setup.
 
-* [docker compose network](../deployment/ex1/docker-compose.yml)
-* [operational script](../scripts/ex1.sh)
+### Solo
+
+This example showcase a setup with a solo broker with minimu (no password or any security setup).
+
+Here is the:
+
+* [Docker configuration](../deployment/solo/docker-compose.yaml)
+* [Mosquito configuration](../deployment/solo/mosquitto.conf)
+* [Operational script](../scripts/broker.sh) - To run the solo network, use the script and run the following commands `./scripts/broker.sh solo [start or stop]`
+
+## Application Development Working Examples
+
+### Example 1
+
+This example demonstrates a simple pub-sub application.
+Here is the [source](../examples/ex1/main.go)
+
+
+
+## References
+
+* [Eclipse Mosquitto](https://mosquitto.org/).
