@@ -4,7 +4,8 @@ This project demonstrates the use of MQTT protocol through a series of working e
 
 ## Topics
 
-* [mosquitto mqtt](./docs/mosquito.md)
+* [Concepts](./docs/concept.md)
+* [Mosquitto MQTT](./docs/mosquito.md)
 
 ## Disclaimer
 
